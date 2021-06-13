@@ -183,5 +183,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-bin
-result.xlsx
+core-js/bin
+core-js/result.xlsx

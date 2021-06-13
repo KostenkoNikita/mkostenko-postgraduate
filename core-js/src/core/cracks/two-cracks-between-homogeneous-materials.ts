@@ -1,6 +1,6 @@
 import { ICrackShape } from "../shape";
 import { IsotropicMaterial } from "../material";
-import { fullFirstKindEllipticIntegral, fullSecondKindEllipticIntegral } from "../../math/functions/special";
+import { fullFirstKindEllipticIntegral, fullSecondKindEllipticIntegral } from "../../math";
 
 export class TwoCracksBetweenHomogeneousMaterials {
    
