@@ -36,7 +36,7 @@ export class TwoCracksBetweenHomogeneousMaterials {
    
    get helperParamQ(): number {
       const d = this._rightCrackShape.xEdgeRight;
-      const c = this._leftCrackShape.xEdgeLeft;
+      const c = this._rightCrackShape.xEdgeLeft;
       return Math.sqrt(d * d - c * c) / d;
    }
    
@@ -46,7 +46,7 @@ export class TwoCracksBetweenHomogeneousMaterials {
       const d = this._rightCrackShape.xEdgeRight;
       const dPow2 = d * d;
       
-      const c = this._leftCrackShape.xEdgeLeft;
+      const c = this._rightCrackShape.xEdgeLeft;
       const cPow2 = c * c;
       
       const L = this.helperParamL;
