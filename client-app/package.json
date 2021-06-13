@@ -1,0 +1,44 @@
+{
+  "name": "client-app",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "keywords": [],
+  "author": "Mykyta Kostenko",
+  "license": "MIT",
+  "main": "./build/main.js",
+  "scripts": {
+    "build:electron:dev": "npm run clean:electron && cross-env NODE_ENV=development webpack --config webpack/webpack.electron.config.js --mode development",
+    "build:electron:prod": "npm run clean:electron && cross-env NODE_ENV=production webpack --config webpack/webpack.electron.config.js --mode production",
+    "start:electron:dev": "npm run build:electron:dev && electron .",
+    "start:electron:prod": "npm run build:electron:prod && electron .",
+    "clean:electron": "concurrently --kill-others \"rimraf build/main.js\" \"rimraf build/main.js.map\"",
+    "start:react:dev": "npm run clean:react && webpack serve --config webpack/webpack.react.config.js --mode development",
+    "build:react:prod": "npm run clean:react && webpack --config webpack/webpack.react.config.js --mode production",
+    "clean:react": "rimraf build/view",
+    "start:all:dev": "npm run clean:all && concurrently --kill-others \"npm run start:react:dev\" \"npm run start:electron:dev\"",
+    "start:all:prod": "npm run clean:all && npm run build:react:prod && npm run start:electron:prod",
+    "clean:all": "rimraf build"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "@types/react": "17.0.11",
+    "@types/react-dom": "17.0.7",
+    "@types/node": "15.12.2"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "cross-env": "7.0.3",
+    "electron": "13.1.2",
+    "html-webpack-plugin": "5.3.1",
+    "rimraf": "3.0.2",
+    "terser-webpack-plugin": "5.1.3",
+    "ts-loader": "9.2.3",
+    "typescript": "4.3.2",
+    "typescript-declaration-webpack-plugin": "0.2.2",
+    "webpack": "5.38.1",
+    "webpack-cli": "4.7.2",
+    "webpack-dev-server": "3.11.2"
+  }
+}

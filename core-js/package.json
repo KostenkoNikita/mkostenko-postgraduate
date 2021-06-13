@@ -3,21 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "scripts": {
-    "clean": "cd node_modules/.bin && rimraf bin",
-    "build-dev": "npm run clean && cd node_modules/.bin && tsc -p ../../tsconfig.json",
-    "build-prod": "npm run clean && cd node_modules/.bin && webpack --config ../../webpack/webpack.config.prod.js",
-    "run-dev": "npm run build-dev && cd bin && node index.js",
-    "run-prod": "npm run build-prod && cd bin && node index.js"
-  },
   "keywords": [],
   "author": "Mykyta Kostenko",
   "license": "MIT",
+  "scripts": {
+    "clean": "cd node_modules/.bin && rimraf bin",
+    "build:dev": "npm run clean && cd node_modules/.bin && tsc -p ../../tsconfig.json",
+    "build:prod": "npm run clean && cd node_modules/.bin && webpack --config ../../webpack/webpack.config.prod.js",
+    "start:dev": "npm run build:dev && cd bin && node index.js"
+  },
   "dependencies": {
-    "xlsx-chart": "0.4.3"
+    "xlsx-chart": "0.4.3",
+    "@types/node": "15.12.2"
   },
   "devDependencies": {
-    "@types/node": "15.12.2",
     "ts-loader": "9.2.3",
     "source-map-loader": "3.0.0",
     "webpack": "5.38.1",

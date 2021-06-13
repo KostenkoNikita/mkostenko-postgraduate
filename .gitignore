@@ -185,3 +185,5 @@ dist
 
 core-js/bin
 core-js/result.xlsx
+
+client-app/build
