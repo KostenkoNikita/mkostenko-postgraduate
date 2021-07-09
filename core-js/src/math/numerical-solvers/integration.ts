@@ -1,5 +1,5 @@
-import { DefiniteOneDimensionalIntegral } from "../types";
 import { EPS } from "../defaults";
+import { DefiniteOneDimensionalIntegral } from "../types";
 
 export function solveSimpson(integral: DefiniteOneDimensionalIntegral, h = EPS): number {
    const {

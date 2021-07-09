@@ -6,7 +6,7 @@ import { AppRoot } from "./components/AppRoot";
 function renderApp() {
    ReactDOM.render (
       <AppRoot/>,
-      document.getElementById("react-js-sandcastle-app-root")
+      document.getElementById("app-root-element")
    );
 }
 

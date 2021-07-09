@@ -5,6 +5,10 @@ module.exports = {
    context: __dirname,
    mode: 'production',
    entry: '../src/index.ts',
+   target: "node",
+   node: {
+      __dirname: false,
+   },
    module: {
       rules: [
          {
@@ -17,6 +21,10 @@ module.exports = {
             loader: "source-map-loader",
             exclude: /node_modules/,
          },
+         {
+            test: /\.node$/,
+            loader: "native-ext-loader"
+         }
       ]
    },
    resolve: {

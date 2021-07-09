@@ -1,5 +1,5 @@
 {
-  "name": "mkostenko-postgraduate",
+  "name": "@mkostenko/core",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -7,22 +7,27 @@
   "author": "Mykyta Kostenko",
   "license": "MIT",
   "scripts": {
-    "clean": "cd node_modules/.bin && rimraf bin",
+    "clean": "cd node_modules/.bin && rimraf ../../bin",
     "build:dev": "npm run clean && cd node_modules/.bin && tsc -p ../../tsconfig.json",
     "build:prod": "npm run clean && cd node_modules/.bin && webpack --config ../../webpack/webpack.config.prod.js",
-    "start:dev": "npm run build:dev && cd bin && node index.js"
+    "start:dev": "npm run build:dev && cd bin && node index.js",
+    "start:prod": "npm run build:prod && cd bin && node index.js"
   },
   "dependencies": {
+    "@node-rs/helper": "1.2.0",
+    "@types/node": "15.12.2",
     "xlsx-chart": "0.4.3",
-    "@types/node": "15.12.2"
+    "lodash": "4.17.21"
   },
   "devDependencies": {
-    "ts-loader": "9.2.3",
-    "source-map-loader": "3.0.0",
-    "webpack": "5.38.1",
-    "webpack-cli": "4.7.2",
-    "typescript": "4.3.2",
+    "@types/lodash": "4.14.170",
+    "native-ext-loader": "2.3.0",
+    "node-polyfill-webpack-plugin": "1.1.2",
     "rimraf": "3.0.2",
-    "node-polyfill-webpack-plugin": "1.1.2"
+    "source-map-loader": "3.0.0",
+    "ts-loader": "9.2.3",
+    "typescript": "4.3.2",
+    "webpack": "5.38.1",
+    "webpack-cli": "4.7.2"
   }
 }

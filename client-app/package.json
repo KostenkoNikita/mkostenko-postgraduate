@@ -1,5 +1,5 @@
 {
-  "name": "client-app",
+  "name": "@mkostenko-postgraduate/client-app",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -21,11 +21,14 @@
     "clean:all": "rimraf build"
   },
   "dependencies": {
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "@mkostenko/core": "file:../core-js",
+    "@types/node": "15.12.2",
     "@types/react": "17.0.11",
     "@types/react-dom": "17.0.7",
-    "@types/node": "15.12.2"
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "autobind-decorator": "2.4.0",
+    "bluebird": "3.7.2"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",
@@ -39,6 +42,9 @@
     "typescript-declaration-webpack-plugin": "0.2.2",
     "webpack": "5.38.1",
     "webpack-cli": "4.7.2",
-    "webpack-dev-server": "3.11.2"
+    "webpack-dev-server": "3.11.2",
+    "native-ext-loader": "2.3.0",
+    "@types/bluebird": "3.5.36",
+    "@types/bluebird-global": "3.5.12"
   }
 }

@@ -9,14 +9,18 @@ module.exports = [
          extensions: ['.tsx', '.ts'],
       },
       devtool: 'source-map',
-      entry: path.resolve(__dirname, '../electron/main.ts'),
-      target: 'electron-renderer',
+      entry: path.resolve(__dirname, '../electron/main/index.ts'),
+      target: 'electron-main',
       module: {
          rules: [
             {
                test: /\.tsx?$/,
                use: 'ts-loader',
                exclude: /node_modules/,
+            },
+            {
+               test: /\.node$/,
+               loader: "native-ext-loader"
             }
          ]
       },
@@ -35,7 +39,7 @@ module.exports = [
       },
    },
    {
-      entry: path.resolve(__dirname, '../electron/preload.ts'),
+      entry: path.resolve(__dirname, '../electron/preload/index.ts'),
       target: 'electron-preload',
       output: {
          path: electronBuildPath,

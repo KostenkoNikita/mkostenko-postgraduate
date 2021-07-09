@@ -186,4 +186,9 @@ dist
 core-js/bin
 core-js/result.xlsx
 
+core-rust/target
+
+rust-node-bridge/target
+rust-node-bridge/bin
+
 client-app/build

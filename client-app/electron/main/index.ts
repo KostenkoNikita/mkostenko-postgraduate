@@ -1,13 +1,12 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow, ipcMain, IpcMainEvent } from "electron";
 import * as path from 'path';
 import * as url from 'url';
+import { Core } from "@mkostenko/core";
+import { FACTORIAL_API_ITEM } from "../shared";
 
 let mainWindow: Electron.BrowserWindow | null;
 
 function createWindow() {
-   
-   console.log(`\n\n\n${path.join(__dirname, 'preload.js')}\n\n\n`);
-   
    mainWindow = new BrowserWindow({
       width: 1200,
       height: 600,
@@ -17,8 +16,10 @@ function createWindow() {
       },
    });
    
-   ipcMain.on("do-a-thing", () => {
-      console.log("do-a-thing");
+   ipcMain.on(FACTORIAL_API_ITEM.channel, (event: IpcMainEvent, arg: number) => {
+      const result = Core.math.common.factorial(arg);
+      
+      event.reply(FACTORIAL_API_ITEM.channelReply, result);
    });
    
    if (process.env.NODE_ENV === 'development') {
