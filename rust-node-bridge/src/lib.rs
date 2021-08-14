@@ -12,7 +12,7 @@ fn api_factorial(mut cx: FunctionContext) -> JsResult<JsNumber> {
     }
 
     let arg0: u64 = arg0 as u64;
-    let result = core_rust::common::factorial(arg0);
+    let result = mkostenko_core_rust::common::factorial(arg0);
 
     return Ok(cx.number(result as f64));
 }
@@ -20,6 +20,5 @@ fn api_factorial(mut cx: FunctionContext) -> JsResult<JsNumber> {
 #[neon::main]
 fn main(mut cx: ModuleContext) -> NeonResult<()> {
     cx.export_function("factorial", api_factorial)?;
-
     Ok(())
 }
