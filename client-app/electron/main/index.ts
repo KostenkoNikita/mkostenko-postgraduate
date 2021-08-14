@@ -3,13 +3,14 @@ import * as path from 'path';
 import * as url from 'url';
 import { Core } from "@mkostenko/core";
 import { FACTORIAL_API_ITEM } from "../shared";
+import {Nullable} from "@mkostenko/core";
 
-let mainWindow: Electron.BrowserWindow | null;
+let mainWindow: Nullable<Electron.BrowserWindow>;
 
 function createWindow() {
    mainWindow = new BrowserWindow({
       width: 1200,
-      height: 600,
+      height: 900,
       webPreferences: {
          nodeIntegration: true,
          preload: path.join(__dirname, 'preload.js'),
@@ -24,6 +25,8 @@ function createWindow() {
    
    if (process.env.NODE_ENV === 'development') {
       mainWindow.loadURL(`http://localhost:3000`);
+
+      mainWindow.webContents.openDevTools({ mode: "detach" });
    } else {
       mainWindow.loadURL(
          url.format({

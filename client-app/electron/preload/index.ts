@@ -2,7 +2,7 @@ import { contextBridge, ipcRenderer, IpcRendererEvent } from "electron";
 
 import { ICoreResult } from "@mkostenko/core";
 
-import { ELECTRON_API_KEY, FACTORIAL_API_ITEM } from "../shared";
+import {ELECTRON_API_KEY, FACTORIAL_API_ITEM} from "../shared";
 
 contextBridge.exposeInMainWorld(
    ELECTRON_API_KEY,

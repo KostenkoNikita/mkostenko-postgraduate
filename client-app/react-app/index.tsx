@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { Chart, registerables } from 'chart.js';
 
 import { AppRoot } from "./components/AppRoot";
 
@@ -10,4 +11,5 @@ function renderApp() {
    );
 }
 
+Chart.register(...registerables);
 renderApp();
